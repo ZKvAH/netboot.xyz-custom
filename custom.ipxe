@@ -3,12 +3,12 @@
 # Debian Operating System
 # http://www.debian.org
 
-goto ${menu}
-
-:debian
-set debian_mirror http://mirrors.cloud.tencent.com/debian/
+:mirrors
+set debian_mirror http://mirrors.cloud.tencent.com
 set debian_base_dir debian
-set os Debian
+
+:custom
+set os debian
 clear debian_version
 clear older_release
 menu ${os} - ${arch_a}
@@ -66,11 +66,11 @@ set install_params auto=true priority=critical preseed/url=${preseedurl}
 goto deb_text
 
 :deb_text
-set dir ${dir}${menu}-installer/${arch_a}
+set dir ${dir}${os}-installer/${arch_a}
 goto deb_boot
 
 :deb_graphical
-set dir ${dir}gtk/${menu}-installer/${arch_a}
+set dir ${dir}gtk/${os}-installer/${arch_a}
 set install_params vga=788
 goto deb_boot
 
